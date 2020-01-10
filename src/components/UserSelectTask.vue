@@ -43,7 +43,18 @@
             </template>
           </v-expansion-panel-header>
           <v-expansion-panel-content>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            <ul class="pt-2 pb-2">
+              <v-hover v-slot:default="{ hover }">
+              <li v-for="item in allTasks"
+                  :class="{'font-weight-bold font-italic': hover}"
+                  :key="item.taskId"
+                  class="d-inline-block font-weight-medium task_number mr-2"
+                  @click="selectTask(item.taskId)"
+              >
+                {{item.taskNumber}}
+              </li>
+              </v-hover>
+            </ul>
           </v-expansion-panel-content>
         </v-expansion-panel>
   
@@ -126,7 +137,7 @@
         :color="'white'"
         :elevation="2"
         :tile="false"
-        class="pl-9 pr-9 pt-3"
+        class="pl-9 pr-9 pt-3 pb-3"
         >
       <v-text-field
         v-model="answer"
@@ -202,15 +213,12 @@ export default {
         return  CLASS.find(cl => cl.CLASS_NUMBER === this.getUserSelectClass).CLASS
       }
     },
-    items: {
+    allTasks: {
       get () {
-        let arr = []
-        if (this.getUserSelectSubject.length) {
-          this.getUserSelectSubject.forEach(item => {
-            arr = arr.concat(item.subject)
-          });
-        }
-        return arr
+        return this.getAllTaskCategory.map(item => {
+          const { task, taskId, taskNumber, title } = item
+          return { task, taskId, taskNumber, title }
+        })
       }
     }
   },
@@ -227,6 +235,9 @@ export default {
     },
     receiveanswer: function () {
       console.log('RECIVE_ANSWER')
+    },
+    selectTask: function (id) {
+      console.log(id)
     }
   }
 }
@@ -234,5 +245,12 @@ export default {
 <style lang="scss" scoped>
 .instruction {
   margin-top: -20px;
+}
+.task_number {
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+
+  }
 }
 </style>

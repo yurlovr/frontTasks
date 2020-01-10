@@ -89,7 +89,7 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 @import './assets/style.scss';
 .v-toolbar__title {
   min-width: 75%;

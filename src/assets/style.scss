@@ -6,4 +6,14 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   background-color: #fafafa;
+  .v-application {
+    & ul {
+      list-style: none;
+      padding: 0;
+      > li {
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
 }
