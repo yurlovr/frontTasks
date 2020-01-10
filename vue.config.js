@@ -46,6 +46,66 @@ module.exports = {
         changeOrigin: true,
         pathRewrite: { '^/allTaskForCategory': '' }
       },
+      '^/notSolutionTasks': {
+        target: 'http://localhost:3000/api/notSolutionTasks',
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: { '^/notSolutionTasks': '' }
+      },
+      '^/alreadySolutionTasks': {
+        target: 'http://localhost:3000/api/alreadySolutionTasks',
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: { '^/alreadySolutionTasks': '' }
+      },
+      '^/alreadyReceivedAnswers': {
+        target: 'http://localhost:3000/api/alreadyReceivedAnswers',
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: { '^/alreadyReceivedAnswers': '' }
+      },
+      '^/getTask': {
+        target: 'http://localhost:3000/api/getTask',
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: { '^/getTask': '' }
+      },
+      '^/solution': {
+        target: 'http://localhost:3000/api/solution',
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: { '^/solution': '' }
+      },
+      '^/checkAnswer': {
+        target: 'http://localhost:3000/api/checkAnswer',
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: { '^/checkAnswer': '' }
+      },
+      '^/getUserAwards': {
+        target: 'http://localhost:3000/api/getUserAwards',
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: { '^/getUserAwards': '' }
+      },
+      '^/getUserSolutionTasks': {
+        target: 'http://localhost:3000/api/getUserSolutionTasks',
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: { '^/getUserSolutionTasks': '' }
+      },
+      '^/getUserReceivedAnswers': {
+        target: 'http://localhost:3000/api/getUserReceivedAnswers',
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: { '^/getUserReceivedAnswers': '' }
+      },
+      '^/logOut': {
+        target: 'http://localhost:3000/api/logOut',
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: { '^/logOut': '' }
+      },
     }
   }
 }

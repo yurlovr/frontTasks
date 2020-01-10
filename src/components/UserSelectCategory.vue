@@ -75,7 +75,7 @@ export default {
       'setAllTaskCategory'
     ]),
     nextStep: function (item) {
-      console.log(item)
+
     this.setSelectedCategory({
       data: item
     })

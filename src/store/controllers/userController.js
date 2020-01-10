@@ -13,7 +13,7 @@ export default function () {
             router.push('/userCreated')
           }
           break
-        case 'user/SET_USER_LOGOUT':
+        case 'user/SET_USER_LOG_OUT':
           router.push('/')
           break
         case 'user/SET_USER_LOG_IN':
@@ -28,7 +28,7 @@ export default function () {
           router.push('/selectCategoty')
           break
         case 'user/SET_ALL_TASK_CATEGORY':
-          if(getter['user'])
+          router.push('/tasks')
           break
       }
     })

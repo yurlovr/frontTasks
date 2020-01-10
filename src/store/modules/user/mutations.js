@@ -1,8 +1,10 @@
 import { STATUS } from '../../../const/const'
 
 export const SET_REGISTRATION = (state, payload) => {
+  console.log(payload)
   if (payload.status === STATUS.USER_WAS_CREATED) {
-    state.user = payload.user
+    const { email, classNumber, displayName } = payload
+    state.user = { email, classNumber, displayName }
     state.token = !state.token
   }
 }
@@ -18,6 +20,7 @@ export const SET_USER_LOG_OUT = (state, payload) => {
   state.allTaskCategory = null
   state.solutionTask = null
   state.receivedAnswers = null
+  state.awards = null
 }
 
 export const SET_USER_LOG_IN = (state, payload) => {
@@ -53,4 +56,7 @@ export const SET_SOLUTION_TASKS = (state, payload) => {
 }
 export const SET_RECEIVED_ANSWERS = (state, payload) => {
   state.receivedAnswers = payload
+}
+export const SET_USER_AWARDS = (state, payload) => {
+  state.awards = payload
 }

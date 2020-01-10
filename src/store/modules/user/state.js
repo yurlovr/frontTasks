@@ -8,5 +8,6 @@ export default {
  categorySelected: null, // храним id выбранной темы
  allTaskCategory: null,
  solutionTask: null,
- receivedAnswers: null
+ receivedAnswers: null,
+ awards: null
 }

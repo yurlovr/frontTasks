@@ -13,15 +13,25 @@ export const setRegistration = ({ commit }, payload) => {
   fetch('/createUser', { ...requestHeaders(OPTIONS), body: JSON.stringify(payload.data)})
     .then(res => res.json())
     .then(json => {
-      localStorage.setItem('token', JSON.stringify(json.token))
-      commit('SET_REGISTRATION', json)
+      const { displayName, email, classNumber, solutionTasks, receivedAnswers, awards } = json.user
+      const { status, token } = json
+      localStorage.setItem('token', JSON.stringify(token))
+      commit('SET_REGISTRATION', { displayName, email, classNumber, status, token })
+      commit('SET_SOLUTION_TASKS', solutionTasks)
+      commit('SET_RECEIVED_ANSWERS', receivedAnswers)
+      commit('SET_USER_AWARDS', awards)
     })
     .catch(error => commit('SET_REGISTRATION', error))
 }
 
 export const setUserLogOut = ({ commit }, payload) => {
-  localStorage.removeItem('token')
-  commit('SET_USER_LOG_OUT', payload)
+  fetch('/logOut', { ...requestHeaders(OPTIONS)})
+    .then(res => res.json())
+    .then(json => {
+      localStorage.removeItem('token')
+      commit('SET_USER_LOG_OUT', payload)
+    })
+  
 }
 
 export const setUserLogIn = ({ commit }, payload) => {
@@ -43,7 +53,7 @@ export const setUserSelectClass = ({ commit }, payload) => {
   fetch('/allSubject', { ...requestHeaders(OPTIONS), body: JSON.stringify({classNumber: payload.data})})
     .then(res => res.json())
     .then(json => {
-      commit('SET_USER_SELECT_SUBJECT', json)
+      commit('SET_USER_SELECT_SUBJECT', json.allSubject)
     })
 
 }

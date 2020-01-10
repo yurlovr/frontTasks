@@ -15,7 +15,7 @@
       <v-toolbar-title>Page title</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-app-bar-nav-icon
-        class="d-lg-none d-xl-flex"
+        class="d-lg-none d-xl-none"
       ></v-app-bar-nav-icon>
       <v-btn
         v-if='!getLoggedIn'
@@ -90,9 +90,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-html {
-  overflow-y: hidden;
-}
+@import './assets/style.scss';
 .v-toolbar__title {
   min-width: 75%;
   padding-left: 25%;

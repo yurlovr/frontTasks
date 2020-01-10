@@ -10,6 +10,7 @@ import userLogIn from '../components/UserLogIn.vue'
 import LogIn from '../components/LogIn.vue'
 import UserSelectSubject from '../components/UserSelectSubject.vue'
 import UserSelectCategory from '../components/UserSelectCategory.vue'
+import UserSelectTask from '../components/UserSelectTask.vue'
 
 Vue.use(VueRouter)
 
@@ -58,6 +59,14 @@ const routes = [
     path: '/selectCategoty',
     name: 'selectCategoty',
     component: UserSelectCategory,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/tasks',
+    name: 'task',
+    component: UserSelectTask,
     meta: {
       requiresAuth: true
     }
